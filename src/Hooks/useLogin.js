@@ -56,6 +56,7 @@ export const useLogin = (user, setUser, isLogin, setIsLogin) => {
                         setIsLogin(true)
                     }).catch(error => {
                         // navigate("/login")
+                        console.log("haha be dick")
                         setIsLogin(false)
                     })
                 }

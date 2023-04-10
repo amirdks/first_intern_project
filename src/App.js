@@ -14,7 +14,7 @@ import {useLogin} from "./Hooks/useLogin";
 function App() {
     const routes = useRoutes(route)
     const [user, setUser] = useState({})
-    const [isLogin, setIsLogin] = useState(false)
+    const [isLogin, setIsLogin] = useState(null)
     useLogin(user, setUser, isLogin, setIsLogin)
     return (
         <>

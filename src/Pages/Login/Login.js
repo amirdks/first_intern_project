@@ -8,7 +8,7 @@ import {Link, useSearchParams} from "react-router-dom";
 import Button from "../../Components/Form/Button";
 import notification from "../../Utils/Toastify";
 import {useNavigate} from 'react-router-dom';
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import UserContext from "../../Context/Context";
 
 
@@ -29,6 +29,15 @@ export default function Login() {
     const [searchParams, setSearchParams] = useSearchParams();
     const [user, setUser, isLogin, setIsLogin] = useContext(UserContext);
     const navigate = useNavigate();
+    useEffect(() => {
+        if (isLogin) {
+            if (searchParams.get("next")) {
+                navigate(searchParams.get("next"))
+            } else {
+                navigate('/');
+            }
+        }
+    }, [isLogin])
     const userLogin = (event) => {
         event.preventDefault();
         let userInfo = {
