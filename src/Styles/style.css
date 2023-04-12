@@ -1,5 +1,5 @@
 @import "reset.css";
-@import "../fonts/vazirmatn-master/Vazirmatn-font-face.css";
+@import "../Fonts/vazirmatn-master/Vazirmatn-font-face.css";
 
 html {
     font-size: 100%;
@@ -15,6 +15,10 @@ a {
     /*color: white;*/
 }
 
+.active {
+    border-bottom: 3px solid #0df5e3;
+}
+
 #navbar-container {
     background-color: #201a31;
     height: 60px;
@@ -22,7 +26,7 @@ a {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 9999;
+    z-index: 500;
     opacity: .9;
     border-bottom: 1px solid #666;
 }
@@ -41,6 +45,16 @@ a {
     font-size: 2.8em;
     color: #0df5e3;
     text-align: center;
+}
+
+.user-icon-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-icon-group svg {
+    margin: 0 10px;
 }
 
 .right-navbar {
@@ -110,8 +124,57 @@ a {
     text-decoration: none;
 }
 
+.user-icon-popup {
+    position: relative;
+    /*cursor: pointer;*/
+}
+
+.user-icon-popup-container {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 70px;
+    /*top: 50%;*/
+    z-index: 500;
+    left: 50%;
+    transform: translate(-50%);
+    /*right: 0;*/
+    background-color: #201a31;
+    border: 1px solid #666;
+    padding: 20px;
+    border-radius: 15px;
+    transition: all .3s linear;
+}
+
+.user-icon-group:hover .user-icon-popup-container {
+    top: 35px;
+    visibility: visible;
+    opacity: 1;
+}
+
+/*.user-icon-popup-container[cl]*/
+.user-icon-popup-section {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-icon-popup-section img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-icon-popup-section span {
+    margin: 15px 0;
+}
+
 .header-container {
-    background-image: url("../images/v1016-b-08.jpg");
+    background-image: url("../../public/images/v1016-b-08.jpg");
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -128,7 +191,7 @@ a {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 45%;
+    height: 60%;
 }
 
 .header-container .header-section .header-header {
@@ -211,7 +274,8 @@ a {
     cursor: pointer;
     transition: all .3s;
 }
-.show-more-button a{
+
+.show-more-button a {
     color: #201a31;
     margin-right: 10px;
 
@@ -233,4 +297,16 @@ footer {
     text-align: center;
     font-size: 1.1em;
     color: white;
+}
+
+#change-pass-btn {
+    background-color: inherit;
+    padding: 10px 10px;
+    text-align: center;
+    width: 50%;
+    margin: 15px auto 0;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 20px;
+    color: orangered;
 }

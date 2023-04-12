@@ -20,11 +20,7 @@ const validator = (value, validations) => {
     }
   }
 
-  if (validationResults.length) {
-    return false;
-  } else {
-    return true;
-  }
+  return !validationResults.length;
 };
 
 export default validator;

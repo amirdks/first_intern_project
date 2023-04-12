@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from "react";
-import validator from "../../validators/validator";
+import validator from "../../Validators/validator";
 
 import "./Input.css";
 
@@ -32,7 +32,6 @@ export default function Input(props) {
   }, [value]);
 
   const onChangeHandler = (event) => {
-    console.log(event.target.value);
     dispatch({
       type: "CHANGE",
       value: event.target.value,
@@ -46,11 +45,10 @@ export default function Input(props) {
       <input
         type={props.type}
         placeholder={props.placeholder}
-        className={`${props.className} ${
-          mainInput.isValid ? "success" : "error"
-        }`}
+        // className={`${props.className}`}
         value={mainInput.value}
         onChange={onChangeHandler}
+        // autoComplete={true}
       />
     ) : (
       <textarea
@@ -63,5 +61,5 @@ export default function Input(props) {
       />
     );
 
-  return <div>{element}</div>;
+  return element;
 }

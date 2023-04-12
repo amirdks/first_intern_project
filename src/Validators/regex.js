@@ -1,5 +1,5 @@
 const testEmail = (value) => {
-    const emailPattent = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/g
+    const emailPattent = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
     return emailPattent.test(value)
 }
 

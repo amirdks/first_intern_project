@@ -1,5 +1,5 @@
 @import "reset.css";
-@import "../fonts/vazirmatn-master/Vazirmatn-font-face.css";
+@import "../Fonts/vazirmatn-master/Vazirmatn-font-face.css";
 
 html {
     font-size: 100%;
@@ -7,6 +7,23 @@ html {
 }
 
 body {
+    /*font-family: Vazirmatn, sans-serif;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*height: 100vh;*/
+    /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
+}
+
+/*#root{*/
+/*    font-family: Vazirmatn, sans-serif;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    height: 100vh;*/
+/*    background: linear-gradient(-135deg, #c850c0, #4158d0);*/
+/*}*/
+.login-main {
     font-family: Vazirmatn, sans-serif;
     display: flex;
     align-items: center;
@@ -65,7 +82,7 @@ body {
     width: 85%;
 }
 
-.login-right form .form-group i {
+.login-right form .form-group svg {
     color: #0df5e3;
 }
 
@@ -75,28 +92,40 @@ body {
     justify-content: center;
     border-radius: 30px;
     padding: 8px 0;
-    background-color: #0df5e3;
+
     width: 100%;
     margin: 30px auto;
     font-size: 1.5em;
     font-family: Vazirmatn, "sans-serif";
-    border: none;
-    color: #201a31;
     cursor: pointer;
 }
-.login-right form button:hover{
+
+.login-form-success:hover {
     background-color: #3becde;
 }
-.login-left{
+.login-form-success{
+    color: #201a31;
+    background-color: #0df5e3;
+    border: none;
+}
+.login-form-error {
+    background-color: inherit;
+    color: white;
+    border: 1px solid #666;
+}
+
+.login-left {
     /*margin-right: 20px;*/
     text-align: center;
 }
+
 .login-right p {
     margin-top: 20px;
     font-size: 1.1em;
     color: white;
     text-align: center;
 }
-.login-right p a{
+
+.login-right p a {
     color: #0df5e3;
 }

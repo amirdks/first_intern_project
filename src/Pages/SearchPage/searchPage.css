@@ -46,8 +46,9 @@
     align-items: center;
 }
 
-.main-search-group i {
-    font-size: 1.5em;
+.main-search-group svg {
+    /*font-size: .8em;*/
+    width: 35px;
     color: white;
     border-left: 2px solid #666;
     height: 100%;
