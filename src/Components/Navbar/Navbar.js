@@ -11,6 +11,7 @@ export default function Navbar() {
     // const [user, setUser] = useState(user1)
     const logoutHandler = () => {
         localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
         // setUser(prevSate => {
         //     return {user: null, isLogin: false}
         // })
@@ -51,6 +52,7 @@ export default function Navbar() {
                                            <img src={user.avatar} alt=""/>
                                            <span>{user.full_name}</span>
                                            <p>{user.email}</p>
+                                           <Link id={"change-pass-btn"} to={'/change-password'}>تغییر رمز عبور</Link>
                                        </div>
                                    )}
                                 </div>

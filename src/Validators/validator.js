@@ -16,7 +16,7 @@ const validator = (value, validations) => {
       value.trim().length > validator.max && validationResults.push(false);
     }
     if (validator.value === rules.emailValue) {
-      // !regex.testEmail(value) && validationResults.push(false);
+      !regex.testEmail(value) && validationResults.push(false);
     }
   }
 

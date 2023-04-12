@@ -1,11 +1,13 @@
 import "../../Styles/login.css"
 import {useForm} from "../../Hooks/useForm";
 import Input from "../../Components/Form/Input";
-import {emailValidator, requiredValidator} from "../../Validators/rules";
+import {emailValidator, minValidator, requiredValidator} from "../../Validators/rules";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelope, faLock} from "@fortawesome/free-solid-svg-icons";
-import {Link} from "react-router-dom";
+import {Link, useNavigate, useSearchParams} from "react-router-dom";
 import Button from "../../Components/Form/Button";
+import {useContext, useEffect} from "react";
+import UserContext from "../../Context/Context";
 
 export default function Register() {
     const [formState, onInputHandler] = useForm(
@@ -21,6 +23,18 @@ export default function Register() {
         },
         false
     );
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [user, setUser, isLogin, setIsLogin] = useContext(UserContext);
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (isLogin) {
+            if (searchParams.get("next")) {
+                navigate(searchParams.get("next"))
+            } else {
+                navigate('/');
+            }
+        }
+    }, [isLogin])
     const userRegister = (event) => {
         event.preventDefault();
         console.log("User Login");
@@ -58,8 +72,9 @@ export default function Register() {
                                     element="input"
                                     validations={[
                                         requiredValidator(),
+                                        minValidator(8),
                                         // maxValidator(20),
-                                        emailValidator()
+                                        // emailValidator()
                                     ]}
                                     onInputHandler={onInputHandler}
                                 />
@@ -75,9 +90,9 @@ export default function Register() {
                                     element="input"
                                     validations={[
                                         requiredValidator(),
-                                        // minValidator(8),
+                                        minValidator(8),
                                         // maxValidator(20),
-                                        emailValidator()
+                                        // emailValidator()
                                     ]}
                                     onInputHandler={onInputHandler}
                                 />

@@ -126,7 +126,7 @@ a {
 
 .user-icon-popup {
     position: relative;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 
 .user-icon-popup-container {
@@ -161,13 +161,15 @@ a {
     justify-content: space-between;
     align-items: center;
 }
-.user-icon-popup-section img{
+
+.user-icon-popup-section img {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     object-fit: cover;
 }
-.user-icon-popup-section span{
+
+.user-icon-popup-section span {
     margin: 15px 0;
 }
 
@@ -295,4 +297,16 @@ footer {
     text-align: center;
     font-size: 1.1em;
     color: white;
+}
+
+#change-pass-btn {
+    background-color: inherit;
+    padding: 10px 10px;
+    text-align: center;
+    width: 50%;
+    margin: 15px auto 0;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 20px;
+    color: orangered;
 }

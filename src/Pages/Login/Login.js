@@ -112,7 +112,7 @@ export default function Login() {
                                         requiredValidator(),
                                         minValidator(8),
                                         // maxValidator(20),
-                                        emailValidator()
+                                        // emailValidator()
                                     ]}
                                     onInputHandler={onInputHandler}
                                 />
@@ -130,6 +130,7 @@ export default function Login() {
                             </Button>
                         </form>
                         <p>اگر اکانت ندارد از اینجا <Link to={"/register"}>ثبت نام</Link> کنید</p>
+                        <p>اگر رمز خود را فراموش کردید از اینجا <Link to={"/forget-password"}>بازیابی</Link> کنید</p>
                     </div>
                     <div className="login-left">
                         <img src="./images/ezgif.com-webp-to-jpg(2).jpg" alt="xd"/>
