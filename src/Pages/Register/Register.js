@@ -8,6 +8,7 @@ import {Link, useNavigate, useSearchParams} from "react-router-dom";
 import Button from "../../Components/Form/Button";
 import {useContext, useEffect} from "react";
 import UserContext from "../../Context/Context";
+import notification from "../../Utils/Toastify";
 
 export default function Register() {
     const [formState, onInputHandler] = useForm(
@@ -37,7 +38,28 @@ export default function Register() {
     }, [isLogin])
     const userRegister = (event) => {
         event.preventDefault();
-        console.log("User Login");
+        let body = {
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value,
+            password1: formState.inputs.password.value,
+        }
+        fetch("http://localhost:8000/accounts/api/v1/register/", {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => {
+            if (res.status === 201) {
+                notification("اکانت شما با موفقیت ساخته شد", "success")
+                setIsLogin(true)
+            } else if (res.status === 400) {
+                notification("کاربر با این ایمیل از قبل موجود است", "error")
+            }
+        }).then(res => {
+            console.log("--------------")
+            console.log(res)
+        })
     };
 
     return (
